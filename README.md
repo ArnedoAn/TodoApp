@@ -13,7 +13,7 @@ Asegúrate de tener instalado lo siguiente:
 
 ### Clonar el repositorio
 ```
-git clone https://github.com/tu-usuario/TodoApp.git
+git clone https://github.com/ArnedoAn/TodoApp.git
 cd TodoApp
 ```
 
@@ -34,7 +34,7 @@ dotnet run
 ### Opción 2: Ejecutar con Docker
 ```
 docker build -t todoapp .
-docker run -d -p 8080:80 --name todoapp todoapp
+docker run -p 3000:8080 --name todoapp todoapp
 ```
 Accede a la API en `http://localhost:8080/api/todo`.
 
@@ -53,36 +53,36 @@ Accede a la API en `http://localhost:8080/api/todo`.
 
 ### Obtener todas las tareas
 ```
-curl -X GET http://localhost:5000/api/todo
+curl -X GET http://localhost:{port}/api/todo
 ```
 
 ### Obtener una tarea por ID
 ```
-curl -X GET http://localhost:5000/api/todo/1
+curl -X GET http://localhost:{port}/api/todo/1
 ```
 
 ### Crear una nueva tarea
 ```
-curl -X POST http://localhost:5000/api/todo \
+curl -X POST http://localhost:{port}/api/todo \
      -H "Content-Type: application/json" \
      -d '{"title": "Mi nueva tarea", "isComplete": false}'
 ```
 
 ### Actualizar una tarea existente
 ```
-curl -X PUT http://localhost:5000/api/todo \
+curl -X PUT http://localhost:{port}/api/todo \
      -H "Content-Type: application/json" \
      -d '{"id": 1, "title": "Tarea actualizada", "isComplete": true}'
 ```
 
 ### Marcar una tarea como completada
 ```
-curl -X PATCH http://localhost:5000/api/todo/1/complete
+curl -X PATCH http://localhost:{port}/api/todo/1/complete
 ```
 
 ### Eliminar una tarea
 ```
-curl -X DELETE http://localhost:5000/api/todo/1
+curl -X DELETE http://localhost:{port}/api/todo/1
 ```
 
 ## Pruebas Unitarias
@@ -108,5 +108,5 @@ app.UseSwaggerUI();
 ```
 
 ## Autor
-Andrés Arnedo
+Andrés Arnedo.
 Proyecto desarrollado en .NET 8 con Clean Architecture.
